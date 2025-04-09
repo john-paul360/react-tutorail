@@ -10,12 +10,17 @@ import SimpleList from "./component/SimpleList";
 import ComplexList from "./component/ComplexList";
 import MyStore from "./component/MyStore";
 import LastViewed from "./component/LastViewed";
+import PropsChildren from "./component/PropsChildren";
+import EventHandling from "./component/EventHandling";
+import ConditionalRendering from "./component/ConditionalRendering";
+import SimpleState from "./component/SimpleState";
+import User from "./component/User";
 
 function App() {
   return (
     <div>
-      <MyStore />
-      <LastViewed />
+      <SimpleState />
+      <User />
     </div>
   );
 }
