@@ -4,7 +4,7 @@ import { useState } from "react";
 const SimpleState = () => {
   const [name, setName] = useState("Declan");
   const handleNameChange = () => {
-    if (name == "Declan") {
+    if (name === "Declan") {
       setName("Saka");
     } else {
       setName("Declan");
@@ -12,24 +12,23 @@ const SimpleState = () => {
   };
 
   const [num, setNum] = useState(0);
-  // increase
- 
-  
+  const handleIncrease = () => {
+    setNum(num + 1);
   };
-  // decrease
   const handleDecrease = () => {
     setNum(num - 1);
   };
+
   const details = `Lorem, ipsum dolor sit amet consectetur adipisicing elit. Unde, autem
           rem repudiandae reiciendis delectus dolor accusamus asperiores
           voluptas, ducimus soluta commodi illo facilis voluptatem eos tenetur
           vel odio. Deserunt adipisci libero, reiciendis neque placeat explicabo
           animi eaque! Delectus, expedita? Expedita iusto dolore, provident
-          incidunt praesentium aspernatur cum voluptates sunt magni.` ;
-          const [show, setshow] = useState(false);
-          const handleShowDetails = () => {
-            setshow(!show);
-          };
+          incidunt praesentium aspernatur cum voluptates sunt magni.`;
+  const [show, setshow] = useState(false);
+  const handleShowDetails = () => {
+    setshow(!show);
+  };
 
   return (
     <div className="py-10 text-center">
@@ -41,7 +40,6 @@ const SimpleState = () => {
 
       <h1 className="text-4xl my-3.5"> {num} </h1>
       <button className="mybtn" onClick={handleIncrease}>
-        {" "}
         Increase
       </button>
       <button className="mybtn" onClick={() => setNum(0)}>
@@ -55,9 +53,12 @@ const SimpleState = () => {
         <h2 className="text-2xl text-red-500 my-2">
           Madrid Demolished at the Emirate Stadium
         </h2>
-        <p className="mb-2"> {show ? details : `${details.substr(0, 100)}...`} </p>
+        <p className="mb-2">
+          {" "}
+          {show ? details : `${details.substr(0, 100)}...`}{" "}
+        </p>
         <button onClick={handleShowDetails} className="mybtn">
-            {show ? "Show Less" : "Show More"}
+          {show ? "Show Less" : "Show More"}
         </button>
       </div>
     </div>
