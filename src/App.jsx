@@ -24,11 +24,16 @@ import FetchUser from "./component/FetchUser";
 import GetAuthors from "./component/GetAuthors";
 import Recipe from "./component/Recipe";
 import SimpleForm from "./component/SimpleForm";
+import MultipleForm from "./component/MultipleForm";
+import OtherInput from "./component/OtherInput";
+import AxiosExample from "./component/AxiosExample";
+import TestDaisy from "./component/TestDaisy";
+import ReactHookForm from "./component/ReactHookForm";
 
 function App() {
   return (
     <div>
-      <SimpleForm/>
+      <ReactHookForm />
     </div>
   );
 }

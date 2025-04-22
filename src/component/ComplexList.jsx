@@ -1,7 +1,7 @@
 import React from "react";
 
 const ComplexList = () => {
-  const Staff = [
+  const Staff = [ 
     {
       id: 1,
       image:
