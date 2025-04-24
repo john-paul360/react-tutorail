@@ -1,42 +1,46 @@
-import Navbar from "./component/Navbar";
+import "./App.css";
+import { BrowserRouter as Router, Routes, Route, Navigate} from "react-router-dom";
+import Home from "./Pages/Home";
+import About from "./Pages/About";
+import Contact from "./Pages/Contact";
+import Store from "./Pages/Store";
+import Header from "./component/Header";
 import Footer from "./component/Footer";
-import Hero from "./component/Hero";
-import Contact from "./component/Contact";
-import Product from "./component/Product";
-import Dynamic from "./component/Dynamic";
-import Props from "./component/Props";
-import JumiaClone from "./component/JumiaClone";
-import SimpleList from "./component/SimpleList";
-import ComplexList from "./component/ComplexList";
-import MyStore from "./component/MyStore";
-import LastViewed from "./component/LastViewed";
-import PropsChildren from "./component/PropsChildren";
-import EventHandling from "./component/EventHandling";
-import ConditionalRendering from "./component/ConditionalRendering";
-import SimpleState from "./component/SimpleState";
-import User from "./component/User";
-import ComplexState from "./component/ComplexState";
-import ComplexStateArray from "./component/ComplexStateArray";
-import ExampleArray from "./component/ExampleArray";
-import SimpleEffect from "./component/SimpleEffect";
-import FetchData from "./component/FetchData";
-import FetchUser from "./component/FetchUser";
-import GetAuthors from "./component/GetAuthors";
-import Recipe from "./component/Recipe";
-import SimpleForm from "./component/SimpleForm";
-import MultipleForm from "./component/MultipleForm";
-import OtherInput from "./component/OtherInput";
-import AxiosExample from "./component/AxiosExample";
-import TestDaisy from "./component/TestDaisy";
-import ReactHookForm from "./component/ReactHookForm";
+import NoFound from "./Pages/NoFound";
+import Login from "./Pages/Login"
+import TimeLine from "./Pages/TimeLine";
+import SingleTweet from "./Pages/SingleTweet";
+import DashBoardLayout from "./Pages/DashBoardLayout";
 
 function App() {
   return (
-    <div>
-      <ReactHookForm />
-    </div>
+    <>
+      <Router>
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route  path="/homepage" element={ <Navigate to="/" />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/aboutus" element={<Navigate to="/" />} />
+
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/store" element={<Store />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/timeline" element={<TimeLine />} />
+          <Route path="/timeline/:id" element={<SingleTweet />} />
+          <Route path="/DashBoard" element={<DashBoardLayout />} >
+          {/* children will be here */}
+          <Route index element={<h1>Home DashBoard</h1>} />
+          <Route path="trash" element={<h1>Trash Side</h1>} />
+          <Route path="spam" element={<h1>Spam Side</h1>} />
+          </Route>
+
+          <Route path="*" element={<NoFound />} />
+        </Routes>
+        <Footer />
+      </Router>
+    </>
   );
 }
 
 export default App;
- 

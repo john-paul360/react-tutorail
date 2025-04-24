@@ -2,6 +2,7 @@ import React from 'react'
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import { useState } from "react";
 
 
 // USEFORM - (Register, handleSubmit,)
@@ -17,12 +18,27 @@ const validationSchema = yup.object().shape({
 
 
 
+
 const ReactHookForm = () => {
 
-    const {register, handleSubmit, formState: {errors}} = useForm({ resolver: yupResolver(validationSchema) });
+    const {register, handleSubmit, formState: {errors}}
+      = useForm({ resolver: yupResolver(validationSchema) });
+
+      const [isSubmitting, setIsSubmitting] = useState(false);
+
     const handleFormSubmit = (data) => {
-        console.log(data);
+      setIsSubmitting(true);
+
+        setTimeout(() => {
+          console.log(data);
+           // after doing what you meant to do
+           setIsSubmitting(false);
+        reset();
+
+        }, 5000);
+       
     }
+
 
 
   return (
@@ -64,16 +80,16 @@ const ReactHookForm = () => {
         />
         <p className="text-red-500">{errors.email && errors.email.message}</p>
         <input
-          type="pasword"
+          type="password"
           className={`input mt-2 w-full ${
-            errors.passWord ? "border border-red-500" : ""
+            errors.password ? "border border-red-500" : ""
           }`}
-          placeholder='PassWrod'
+          placeholder='PassWord'
           {...register("passWord")}
         />
-        <p className="text-red-500">{errors.passWord && errors.passWord.message}</p>
+        <p className="text-red-500">{errors.password && errors.password.message}</p>
         <button type="submit" className="btn btn-accent w-full mt-2.5">
-          Submit
+          {isSubmitting ? "Submitting..." : "Submit"}
         </button>
       </form>
     </div>
