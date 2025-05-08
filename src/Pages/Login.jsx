@@ -1,8 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react';
+import { AppContext } from '../Context';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
 import { useNavigate } from 'react-router-dom';
+import { useAppContext } from '../Hooks/useAppContext';
+
 
 const loginFormValidator = yup.object().shape({
   email: yup
@@ -16,6 +19,9 @@ const loginFormValidator = yup.object().shape({
 
 
 const Login = () => {
+  const { value2 } = useAppContext();
+
+
     const {register, handleSubmit, formState: {errors},
 } = useForm({
     resolver: yupResolver(loginFormValidator)
@@ -39,7 +45,7 @@ const onLogin = (data) => {
   return (
     <div>
       <form onClick={handleSubmit(onLogin)} className="myform shadow-2xl">
-        <h1 className="text2xl">Login To Continue</h1>
+        <h1 className="text2xl">{value2}</h1>
         <input
           type="email"
           className="input mt-2 w-full"

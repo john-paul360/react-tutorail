@@ -1,11 +1,13 @@
 import React from "react";
+import { useAppContext } from "../Hooks/useAppContext";
 
 const Hero = () => {
+  const {value1} = useAppContext();
   return (
     <div className="bg-black text-white h-screen max-h-[600px]">
       <div className="container h-full flex flex-col lg:flex-row items-center justify-between gap-6">
         <div className="max-w-[600px]">
-          <h1 className="text-2xl md:text-4xl">Buy Luxury Cars</h1>
+          <h1 className="text-2xl md:text-4xl">{value1}</h1>
           <p className="my-4">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa
             architecto provident autem eaque doloremque? Nulla commodi quia

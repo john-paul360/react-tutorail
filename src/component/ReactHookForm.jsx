@@ -12,11 +12,9 @@ import { useState } from "react";
 const validationSchema = yup.object().shape({
   firstName: yup.string().required("First Name is Required"),
   lastName: yup.string().required("Last Name is Required"),
-  email: yup.string().email("invalid Eamil Address").required("Email is Required"),
+  email: yup.string().email("invalid Email Address").required("Email is Required"),
   password: yup.string().required("password is required").min(7, "Minimum password length is 7")
 });
-
-
 
 
 const ReactHookForm = () => {
@@ -33,13 +31,9 @@ const ReactHookForm = () => {
           console.log(data);
            // after doing what you meant to do
            setIsSubmitting(false);
-        reset();
 
         }, 5000);
-       
     }
-
-
 
   return (
     <div>
@@ -48,7 +42,7 @@ const ReactHookForm = () => {
         className="myform bg-white"
       >
         <h1>Submit Your Details</h1>
-        <input
+        <inpute
           type="text"
           className={`input mt-2 w-full ${
             errors.firstName ? "border border-red-500" : ""
